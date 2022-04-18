@@ -1,0 +1,25 @@
+.playerImage {
+    width: 480px;
+    height: 480px;
+    position: relative;
+    background-image: url('/public/images/1872.jpg');
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bodyParts {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.playerContainer {
+    width: 540px;
+    text-align: left;
+}
+
+.playerContainer p {
+    font-size: smaller;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}

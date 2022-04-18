@@ -9,7 +9,7 @@ const Clan = (props) => {
     console.log(myClan);
 
     return (
-        <div>
+        <div className='clanName'>
             { props.visible ? (<p>{myName}</p>) : '' }
 
         </div>

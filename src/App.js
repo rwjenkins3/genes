@@ -6,8 +6,10 @@ import PlayerView from './components/PlayerView';
 function App() {
   return (
     <div className="App">
-      <p>Hello</p>
+      <div className='senseiContainer'>
       <PlayerView />
+      <PlayerView />
+      </div>
     </div>
   );
 }
