@@ -29,23 +29,25 @@ const PlayerView = (props) => {
     let p2_r1 = getRandomDNA();
     let p2_r2 = getRandomDNA();
 
-    console.log(p1_dna);
-    console.log(showClan);
+    // console.log(p1_dna);
+    // console.log(showClan);
+    let face = false;
+    if(props.reverse) face=true;
 
     return (
         <div className='playerContainer'>
-            <p>DNA: { p1_dna }</p>
-            <p>R1: { p1_r1 }</p>
-            <p>R2: { p1_r2 }</p>
-            <div className='playerImage'  style={{backgroundImage: '/images/1879.jpg'}}>
-            <Clan dna={p1_dna} visible={showClan} />
-            <Base dna={p1_dna} visible={showBase} />
-            <Eyes dna={p1_dna} visible={showEyes} />
-            <Mouth dna={p1_dna} visible={showMouth} />
-            <Hair dna={p1_dna} visible={showHair} />
-            <Uniform dna={p1_dna} visible={showUniform} />
-            <Weapon dna={p1_dna} visible={showWeapon} />
-            <img src='/images/fists-3.png' className='bodyParts' alt="pon" />
+            <p>DNA: { props.dna }</p>
+            <p>R1: { props.r1 }</p>
+            <p>R2: { props.r2 }</p>
+            <div className='playerImage'>
+                <Clan dna={props.dna} visible={showClan} face={face} />
+                <Base dna={props.dna} visible={showBase} face={face} />
+                <Eyes dna={props.dna} visible={showEyes} face={face} />
+                <Mouth dna={props.dna} visible={showMouth} face={face} />
+                <Hair dna={props.dna} visible={showHair} face={face} />
+                <Uniform dna={props.dna} visible={showUniform} face={face} />
+                <Weapon dna={props.dna} visible={showWeapon} face={face} />
+                { !face ? <img src='/images/fists-3.png' className='bodyParts' alt="pon" /> : <img src='/images/fists-3.png' className='bodyPartsRev' alt="pon" /> }
             </div>
         </div>
     );

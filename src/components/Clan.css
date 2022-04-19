@@ -1,5 +1,6 @@
 .clanName p {
-    color: gray;
+    color: grey;
     font-size: xx-large;
     font-weight: bolder;
+    margin: 0.5rem;
 }

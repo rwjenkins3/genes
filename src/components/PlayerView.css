@@ -2,12 +2,22 @@
     width: 480px;
     height: 480px;
     position: relative;
-    background-image: url('/public/images/1872.jpg');
+    background: linear-gradient(
+        rgba(38, 38, 38, 0.9), 
+        rgba(128, 128, 128, 0.45)
+      );
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
 }
 
 .bodyParts {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bodyPartsRev {
+    transform: scaleX(-1);
     position: absolute;
     top: 0;
     left: 0;
