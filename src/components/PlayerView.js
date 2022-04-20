@@ -9,7 +9,7 @@ import Hair from './Hair';
 import Uniform from './Uniform';
 import Weapon from './Weapon';
 
-import { getRandomDNA } from '../geneHelpers';
+import { getRandomDNA, getBase } from '../geneHelpers';
 
 
 const PlayerView = (props) => {
@@ -21,18 +21,14 @@ const PlayerView = (props) => {
     const [ showUniform, setShowUniform ] = useState(true);
     const [ showWeapon, setShowWeapon ] = useState(true);
 
-    let p1_dna = getRandomDNA();
-    let p1_r1 = getRandomDNA();
-    let p1_r2 = getRandomDNA();
-
-    let p2_dna = getRandomDNA();
-    let p2_r1 = getRandomDNA();
-    let p2_r2 = getRandomDNA();
-
-    // console.log(p1_dna);
-    // console.log(showClan);
     let face = false;
     if(props.reverse) face=true;
+
+    const handleChangeBase = (layer) => {
+        setShowBase(!layer);
+    }
+
+    let base = getBase(props.dna);
 
     return (
         <div className='playerContainer'>
@@ -47,7 +43,7 @@ const PlayerView = (props) => {
                 <Hair dna={props.dna} visible={showHair} face={face} />
                 <Uniform dna={props.dna} visible={showUniform} face={face} />
                 <Weapon dna={props.dna} visible={showWeapon} face={face} />
-                { !face ? <img src='/images/fists-3.png' className='bodyParts' alt="pon" /> : <img src='/images/fists-3.png' className='bodyPartsRev' alt="pon" /> }
+                { !face ? <img src={base.hands} className='bodyParts' alt="pon" /> : <img src={base.hands} className='bodyPartsRev' alt="pon" /> }
             </div>
         </div>
     );

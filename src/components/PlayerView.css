@@ -1,6 +1,6 @@
 .playerImage {
-    width: 480px;
-    height: 480px;
+    width: 540px;
+    height: 540px;
     position: relative;
     background: linear-gradient(
         rgba(38, 38, 38, 0.9), 
@@ -24,7 +24,7 @@
 }
 
 .playerContainer {
-    width: 540px;
+    width: 640px;
     text-align: left;
 }
 
