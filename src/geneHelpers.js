@@ -1,13 +1,13 @@
 const clan = [
-    { gene: '0000', name: 'Shoshin', img: '' },
-    { gene: '0001', name: 'Shaolin', img: '' },
-    { gene: '0010', name: 'Shinobi', img: '' },
-    { gene: '0011', name: 'White Crane', img: '' },
-    { gene: '0100', name: 'Tengu', img: '' },
-    { gene: '0101', name: 'Ronin', img: '' },
-    { gene: '0110', name: 'Monk', img: '' },
-    { gene: '0111', name: 'Shuri', img: '' },
-    { gene: '1000', name: 'Naha', img: '' },
+    { gene: '0000', name: 'Shoshin', img: '', stats: [39, 39, 35, 27] },
+    { gene: '0001', name: 'Shaolin', img: '', stats: [31, 35, 31, 43] },
+    { gene: '0010', name: 'Shinobi', img: '', stats: [27, 43, 35, 35] },
+    { gene: '0011', name: 'White Crane', img: '', stats: [35, 31, 35, 39] },
+    { gene: '0100', name: 'Tengu', img: '', stats: [35, 35, 39, 31] },
+    { gene: '0101', name: 'Ronin', img: '', stats: [43, 39, 27, 31] },
+    { gene: '0110', name: 'Monk', img: '', stats: [31, 39, 43, 27] },
+    { gene: '0111', name: 'Shuri', img: '', stats: [61, 31, 31, 41] },
+    { gene: '1000', name: 'Naha', img: '', stats: [39, 35, 31, 35] },
 ];
 const base = [
     { gene: '0000', name: 'body_1', img: '/images/base-1.png', hands: '/images/hands-1.png' },
@@ -54,25 +54,25 @@ const mouth = [
 ];
 
 const uniform = [
-    { gene: '0000', name: 'uniform_1', img: '/images/uni-1.png' },
-    { gene: '0001', name: 'uniform_2', img: '/images/uni-2.png' },
-    { gene: '0010', name: 'uniform_3', img: '/images/uni-3.png' },
-    { gene: '0011', name: 'uniform_4', img: '/images/uni-4.png' },
-    { gene: '0100', name: 'uniform_5', img: '/images/uni-5.png' },
-    { gene: '0101', name: 'uniform_6', img: '/images/uni-6.png' },
-    { gene: '0110', name: 'uniform_7', img: '/images/uni-7.png' },
-    { gene: '0111', name: 'uniform_8', img: '/images/uni-8.png' },
+    { gene: '0000', name: 'uniform_1', img: '/images/uni-1.png', stats: [0, 0, 0, 0] },
+    { gene: '0001', name: 'uniform_2', img: '/images/uni-2.png', stats: [1, 0, 0, 0] },
+    { gene: '0010', name: 'uniform_3', img: '/images/uni-3.png', stats: [1, 1, 1, 0] },
+    { gene: '0011', name: 'uniform_4', img: '/images/uni-4.png', stats: [1, 1, 1, 1] },
+    { gene: '0100', name: 'uniform_5', img: '/images/uni-5.png', stats: [0, 0, 1, 1] },
+    { gene: '0101', name: 'uniform_6', img: '/images/uni-6.png', stats: [0, 1, 1, 0] },
+    { gene: '0110', name: 'uniform_7', img: '/images/uni-7.png', stats: [1, 0, 1, 0] },
+    { gene: '0111', name: 'uniform_8', img: '/images/uni-8.png', stats: [1, 1, 0, 0] },
 ];
 
 const weapon = [    
-    { gene: '0000', name: 'weapon_1', img: '/images/weapon-1.png' },
-    { gene: '0001', name: 'weapon_2', img: '/images/weapon-2.png' },
-    { gene: '0010', name: 'weapon_3', img: '/images/weapon-3.png' },
-    { gene: '0011', name: 'weapon_4', img: '/images/weapon-4.png' },
-    { gene: '0100', name: 'weapon_5', img: '/images/weapon-5.png' },
-    { gene: '0101', name: 'weapon_6', img: '/images/weapon-6.png' },
-    { gene: '0110', name: 'weapon_7', img: '/images/weapon-7.png' },
-    { gene: '0111', name: 'weapon_8', img: '/images/weapon-1.png' },
+    { gene: '0000', name: 'weapon_1', img: '/images/weapon-1.png', stats: [1, 0, 2, 0] },
+    { gene: '0001', name: 'weapon_2', img: '/images/weapon-2.png', stats: [0, 2, 1, 1] },
+    { gene: '0010', name: 'weapon_3', img: '/images/weapon-3.png', stats: [0, 0, 3, 0] },
+    { gene: '0011', name: 'weapon_4', img: '/images/weapon-4.png', stats: [2, 2, 0, 0] },
+    { gene: '0100', name: 'weapon_5', img: '/images/weapon-5.png', stats: [1, 1, 1, 0] },
+    { gene: '0101', name: 'weapon_6', img: '/images/weapon-6.png', stats: [0, 1, 1, 2] },
+    { gene: '0110', name: 'weapon_7', img: '/images/weapon-7.png', stats: [3, 0, 0, 1] },
+    { gene: '0111', name: 'weapon_8', img: '/images/weapon-1.png', stats: [0, 2, 2, 0] },
 ];
 
 function getRandomInt(max) {
@@ -81,17 +81,80 @@ function getRandomInt(max) {
 
 const getRandomDNA = () => {
     let zeroPad = '0000000000000000000000000000000000000000';
+    let c, b, e, h, m, u, w = 0;
 
-    let dna = zeroPad + clan[getRandomInt(9)].gene;
+    let stats = [];
 
-    dna += base[getRandomInt(8)].gene;
+    c = getRandomInt(9);
+    b = getRandomInt(8);
+    e = getRandomInt(8);
+    h = getRandomInt(8);
+    m = getRandomInt(8);
+    u = getRandomInt(8);
+    w = getRandomInt(8);
 
-    dna += eyes[getRandomInt(8)].gene;
-    dna += hair[getRandomInt(8)].gene;
-    dna += mouth[getRandomInt(8)].gene;
-    dna += uniform[getRandomInt(8)].gene;
-    dna += weapon[getRandomInt(8)].gene;
+    let dna = zeroPad + clan[c].gene; // 40
+    stats[0] = clan[c].stats[0];
+    stats[1] = clan[c].stats[1];
+    stats[2] = clan[c].stats[2];
+    stats[3] = clan[c].stats[3];
 
+    dna += base[b].gene; // 44
+
+    dna += eyes[e].gene; // 48
+    dna += hair[h].gene; // 52
+    dna += mouth[m].gene; // 56
+    dna += uniform[u].gene; // 60
+    stats[0] += uniform[u].stats[0];
+    stats[1] += uniform[u].stats[1];
+    stats[2] += uniform[u].stats[2];
+    stats[3] += uniform[u].stats[3];
+
+    dna += weapon[w].gene; // 64
+    stats[0] += weapon[w].stats[0];
+    stats[1] += weapon[w].stats[1];
+    stats[2] += weapon[w].stats[2];
+    stats[3] += weapon[w].stats[3];
+
+    return [dna, stats];
+
+}
+
+const newFOL = (d1, d2) => {
+    let zeroPad = '0000000000000000000000000000000000000000';
+    let dna = zeroPad;
+
+    let flip = getRandomInt(2);
+    if(flip > 0) dna += getClan(d1).gene;
+        else dna += getClan(d2).gene;
+
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getBase(d1).gene;
+        else dna += getBase(d2).gene;
+        console.log(flip);
+
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getEyes(d1).gene;
+    else dna += getEyes(d2).gene;
+    
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getHair(d1).gene;
+        else dna += getHair(d2).gene;
+    
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getMouth(d1).gene;
+        else dna += getMouth(d2).gene;
+    
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getUniform(d1).gene;
+        else dna += getUniform(d2).gene;
+
+    flip = getRandomInt(2);
+    if(flip > 0) dna += getWeapon(d1).gene;
+        else dna += getWeapon(d2).gene;
+        
+            
+    
     return dna;
 
 }
@@ -99,7 +162,6 @@ const getRandomDNA = () => {
 const getClan = (dna) => {
     let index = 40;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = clan.filter((one) => {
         return one.gene === gene;
@@ -111,7 +173,6 @@ const getClan = (dna) => {
 const getBase = (dna) => {
     let index = 44;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = base.filter((one) => {
         return one.gene === gene;
@@ -123,7 +184,6 @@ const getBase = (dna) => {
 const getEyes = (dna) => {
     let index = 48;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = eyes.filter((one) => {
         return one.gene === gene;
@@ -135,7 +195,6 @@ const getEyes = (dna) => {
 const getMouth = (dna) => {
     let index = 56;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = mouth.filter((one) => {
         return one.gene === gene;
@@ -147,7 +206,6 @@ const getMouth = (dna) => {
 const getHair = (dna) => {
     let index = 52;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = hair.filter((one) => {
         return one.gene === gene;
@@ -157,9 +215,8 @@ const getHair = (dna) => {
 }
 
 const getUniform = (dna) => {
-    let index = 56;
+    let index = 60;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = uniform.filter((one) => {
         return one.gene === gene;
@@ -169,13 +226,14 @@ const getUniform = (dna) => {
 }
 
 const getWeapon = (dna) => {
-    let index = 60;
+    let index = 64;
     let gene = dna.slice(index, index+4);
-    console.log(gene);
 
     let selected = weapon.filter((one) => {
         return one.gene === gene;
     })
+
+    console.log(gene);
 
     return selected[0];
 }
@@ -183,4 +241,4 @@ const getWeapon = (dna) => {
 
 
 
-export { getRandomDNA, getClan, getBase, getEyes, getMouth, getHair, getUniform, getWeapon }
+export { getRandomDNA, getClan, getBase, getEyes, getMouth, getHair, getUniform, getWeapon, newFOL }

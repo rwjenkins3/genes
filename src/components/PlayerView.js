@@ -9,7 +9,7 @@ import Hair from './Hair';
 import Uniform from './Uniform';
 import Weapon from './Weapon';
 
-import { getRandomDNA, getBase } from '../geneHelpers';
+import { getBase } from '../geneHelpers';
 
 
 const PlayerView = (props) => {
@@ -29,6 +29,8 @@ const PlayerView = (props) => {
     }
 
     let base = getBase(props.dna);
+
+    console.log(props.stats);
 
     return (
         <div className='playerContainer'>

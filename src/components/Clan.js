@@ -6,8 +6,6 @@ const Clan = (props) => {
     let myClan = getClan(props.dna);
     let myName = myClan.name;
 
-    console.log(myClan);
-
     return (
         <div className='clanName'>
             { props.visible ? (<p>{myName}</p>) : '' }
